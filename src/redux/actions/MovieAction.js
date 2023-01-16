@@ -14,17 +14,24 @@ function getMovies() {
       const upComingApi = api.get(
         `/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
       );
-      let [popularMovies, topRatedMovies, upcomingMovies] = await Promise.all([
-        popularMovieApi,
-        topRatedApi,
-        upComingApi,
-      ]);
+      const genreApi = api.get(
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
+      );
+      let [popularMovies, topRatedMovies, upcomingMovies, genreList] =
+        await Promise.all([
+          popularMovieApi,
+          topRatedApi,
+          upComingApi,
+          genreApi,
+        ]);
+      console.log("장르", genreList);
       dispatch({
         type: "GET_MOVIES_SUCCESS",
         payload: {
           popularMovies: popularMovies.data,
           topRatedMovies: topRatedMovies.data,
           upcomingMovies: upcomingMovies.data,
+          genreList: genreList.data.genres,
           loading: false,
         },
       });
