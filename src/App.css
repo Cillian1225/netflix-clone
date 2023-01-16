@@ -1,3 +1,7 @@
+body {
+  font-family: "Black Han Sans", sans-serif;
+  background-color: black !important;
+}
 .nav-item {
   color: white;
   text-decoration: none;
@@ -5,6 +9,7 @@
 }
 
 .banner {
+  font-weight: bold;
   height: 600px;
   display: flex;
   align-items: center;
@@ -16,6 +21,10 @@
   height: 600px;
   content: "";
   background: linear-gradient(to right, black, transparent);
+}
+.banner-title {
+  font-weight: bolder;
+  color: azure;
 }
 .banner-info {
   color: white;
@@ -29,6 +38,8 @@
   height: 200px;
 }
 .overlay {
+  font-family: "Playfair Display", serif;
+  margin: 5px;
   justify-content: center;
   display: flex;
   flex: auto;
@@ -39,13 +50,28 @@
   height: 100%;
   flex-direction: column;
 }
-.overlay h1 {
+.overlay .movie-title {
   justify-content: center;
-  align-items: center;
+  left: 0;
+  right: 0;
   color: azure;
   display: flex;
   flex-direction: column;
 }
+.overlay h2 {
+  font-size: 20px;
+}
 .movie-card:hover .overlay {
   opacity: 1;
+}
+.card-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-detail span {
+  color: azure;
+}
+.card-rate {
+  display: flex;
 }

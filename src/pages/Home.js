@@ -23,7 +23,7 @@ const Home = () => {
   }
   return (
     /**Popular Movie's first is Banner**/
-    <div>
+    <div className="banner-title">
       <Banner movie={popularMovies.results[0]} />
       <h1>Popular Movies</h1>
       <MovieSlide movies={popularMovies} />

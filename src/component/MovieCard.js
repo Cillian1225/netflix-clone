@@ -1,6 +1,12 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+<link
+  href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+  rel="stylesheet"
+></link>;
 const MovieCard = ({ item }) => {
   const { genreList } = useSelector((state) => state.movie);
   return (
@@ -14,7 +20,10 @@ const MovieCard = ({ item }) => {
       }}
     >
       <div className="overlay">
-        <h1>{item.title}</h1>
+        <div className="movie-title">
+          <h2>{item.title}</h2>
+        </div>
+
         <div>
           {item.genre_ids.map((id) => (
             <Badge bg="danger">
@@ -22,9 +31,16 @@ const MovieCard = ({ item }) => {
             </Badge>
           ))}
         </div>
-        <div>
-          <span>{item.vote_average}</span>
-          <span>{item.adult ? "Adult" : "Under 18"}</span>
+        <div className="card-detail">
+          <div className="card-rate">
+            <span>
+              <FontAwesomeIcon icon={faStar} />
+              {item.vote_average}
+            </span>
+          </div>
+          <div className="isX-Rated">
+            <span>{item.adult ? "/X-Rated" : "/G-Rated"}</span>
+          </div>
         </div>
       </div>
     </div>
