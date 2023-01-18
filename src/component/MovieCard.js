@@ -3,12 +3,14 @@ import { Badge } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 <link
   href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
   rel="stylesheet"
 ></link>;
 const MovieCard = ({ item }) => {
   const { genreList } = useSelector((state) => state.movie);
+  const navigate = useNavigate();
   return (
     <div
       className="movie-card"
@@ -19,7 +21,7 @@ const MovieCard = ({ item }) => {
           ")",
       }}
     >
-      <div className="overlay">
+      <div className="overlay" onClick={() => navigate(`/movies/${item.id}`)}>
         <div className="movie-title">
           <h2>{item.title}</h2>
         </div>
