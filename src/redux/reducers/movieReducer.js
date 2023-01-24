@@ -30,7 +30,6 @@ function movieReducer(state = initialState, action) {
         popularMovies: payload.popularMovies,
         topRatedMovies: payload.topRatedMovies,
         upcomingMovies: payload.upcomingMovies,
-        detailMovies: payload.detailMovies,
         genreList: payload.genreList,
         loading: false,
       };

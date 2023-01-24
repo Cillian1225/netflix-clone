@@ -7,11 +7,13 @@ import MovieDetailPage from "./movieDetailPage";
 
 const MovieDetail = () => {
   const dispatch = useDispatch();
-  const { movieDetail } = useSelector((state) => state.movie);
+  const movieDetail = useSelector((state) => state.movie);
   let { id } = useParams();
   useEffect(() => {
     dispatch(movieAction.getMovieDetail({ id }));
   }, []);
+
+  console.log("무비디테일 값뽑", movieDetail);
 
   return (
     <div>

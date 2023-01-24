@@ -12,6 +12,8 @@ const Home = () => {
   useEffect(() => {
     dispatch(movieAction.getMovies());
   }, []);
+
+  console.log("popular list", popularMovies);
   //if loading is true => loading spinner show
   //if loading is false =>show data list
   //true: before data's arrived
